@@ -1,0 +1,114 @@
+$desktopSize: 900px;
+
+$mediaSizes: (
+  'mobile'    : "only screen and (max-width: 400px)",
+  'tablet'    : "only screen and (min-width: 768px) and (max-width: "+$desktopSize+")",
+  'desktop'   : "only screen and (min-width: ("+$desktopSize+"))",
+  'landscape' : "screen and (orientation:landscape) ",    
+  'portrait'  : "screen and (orientation:portrait) "
+);
+
+@mixin media($breakpoints) {
+  $sizes : ();
+  @each $breakpoint in $breakpoints {
+      // If the key exists in the map
+      $sizes: append(
+          $sizes,
+          #{inspect(map-get($mediaSizes, $breakpoint))},
+          comma
+      );
+  }
+ 
+  @media #{$sizes} {
+    @content;
+  }
+
+}
+
+
+
+@mixin linear-gradient($colorCollection, $orientation:vertical, $solidColor:null ){
+
+  //if colorCollection has only two colors with no percentage they are default set to color1 %0, color2 %100
+  /////////////////////////////////////////////////////////////////////////////////////////
+  @if length($colorCollection) == 2 and length(nth($colorCollection,1)) == 1 and length(nth($colorCollection,2)) == 1
+  {
+    $colorCollection : (nth($colorCollection,1),0%)(nth($colorCollection,2),100%);
+  }
+
+
+  $colorText:"";
+  $colorTextWebkit:"";
+  $firstColor: nth(nth($colorCollection,1),1);
+  $lastColor: nth(nth($colorCollection,length($colorCollection)),1);
+
+  //if solid color is not set then it will be the last color
+  @if $solidColor == null {$solidColor: $lastColor}
+
+
+  $webkit-pos-start : left top;
+  $webkit-pos-end : left bottom;
+  $w3c-pos: to bottom;
+  $other-pos: top;
+  $ie-gradient-type:0;
+
+  @if $orientation == horizontal
+  {
+    $webkit-pos-start : left top;
+    $webkit-pos-end : right top;
+    $w3c-pos: to right;
+    $other-pos: left;
+    $ie-gradient-type:1;
+  }
+  @else if $orientation == fromTopLeft
+  {
+    $webkit-pos-start : left top;
+    $webkit-pos-end : right bottom;
+    $w3c-pos: 135deg;
+    $other-pos: -45deg;
+    $ie-gradient-type:1;
+  }
+  @else if $orientation == fromBottomLeft
+  {
+    $webkit-pos-start : left bottom;
+    $webkit-pos-end : right top;
+    $w3c-pos: 45deg;
+    $other-pos: 45deg;
+    $ie-gradient-type:1;
+  }
+
+
+
+
+
+  @for $i from 0 to length($colorCollection) {
+    $colorPair:nth($colorCollection, $i+1); //smt like (#ff9900,%0)
+    $color:nth($colorPair, 1);
+    $colorPercent:nth($colorPair, 2);
+    $colorText: $colorText+$color+" "+$colorPercent;
+    $colorTextWebkit: $colorTextWebkit+"color-stop("+$colorPercent+","+$color+")";
+
+    @if $i < (length($colorCollection) - 1)
+    {
+      $colorText: $colorText + ", ";
+      $colorTextWebkit: $colorTextWebkit + ", ";
+    };
+  }
+
+
+
+
+
+  $otherText: "linear-gradient("+$other-pos+","+$colorText+")";
+  $w3cText: "linear-gradient("+$w3c-pos+","+$colorText+")";
+
+
+  background: $solidColor; /* Old browsers */
+  background: -moz-#{$otherText}; /* FF3.6+ */
+  background: -webkit-gradient(linear, $webkit-pos-start, $webkit-pos-end, #{$colorTextWebkit}); /* Chrome,Safari4+ */
+  background: -webkit-#{$otherText}; /* Chrome10+,Safari5.1+ */
+  background: -o-#{$otherText}; /* Opera 11.10+ */
+  background: -ms-#{$otherText}; /* IE10+ */
+  background: #{$w3cText}; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$firstColor}', endColorstr='#{$lastColor}',GradientType=#{$ie-gradient-type} ); /* IE6-9 fallback on horizontal gradient */
+}

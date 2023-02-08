@@ -1,0 +1,55 @@
+@mixin experimental($property, $value) {
+    @each $member in webkit, khtml, moz, ms {
+      -#{$member}-#{$property}: $value;
+    }
+    #{$property}: $value;
+  }
+  
+
+  @mixin opacity($opacity)
+  {
+    @if $opacity == 1
+    {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(enabled=false)");
+    }
+    @else {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+    }
+    opacity: $opacity;
+  }
+
+  @mixin backgroundImage($url, $size:cover, $repeat:no-repeat)
+  {
+
+    background-image: url($url);
+    background-repeat: $repeat;
+    background-size: $size;
+    
+  }
+
+
+
+  @mixin keyframes ($animationName) {
+    @at-root{
+      @-webkit-keyframes #{$animationName}{
+        @content;
+      }
+      @-moz-keyframes #{$animationName}{
+        @content;
+      }
+      @keyframes #{$animationName}{
+        @content;
+      }
+    }
+
+  }
+  
+  @mixin animation($name,$duration:null,$iterationCount:null,$direction:null,$timingFunction:null) {
+  
+    @include experimental("animation-name",$name);
+    @if $duration != null {@include experimental("animation-duration",$duration);}
+    @if $iterationCount != null {@include experimental("animation-iteration-count",$iterationCount);}
+    @if $direction != null {@include experimental("animation-direction",$direction);}
+    @if $timingFunction != null {@include experimental("animation-timing-function",$timingFunction);}
+  
+  }

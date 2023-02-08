@@ -1,0 +1,49 @@
+$grey: #ccc;
+$red: red;
+$orange: orange;
+$green: green;
+
+.message-box-container{
+    font-family: $FONT_Arial;
+}
+
+
+%box{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+
+
+@mixin messageBox($borderColor, $lightenValue){
+    @extend %box; 
+    border-color:$borderColor;
+    background-color: lighten($borderColor, $lightenValue);
+}
+
+
+
+.message-box{
+    @include messageBox($grey, 10);
+}
+
+.message-box.alert{
+    @include messageBox($red, 30);
+}
+
+.message-box.warn{
+    @include messageBox($orange, 30);
+}
+
+.message-box.success{
+    @include messageBox($green, 50);
+}
+
+.button{
+    @include messageBox($grey, 50);
+    width: 50px;
+    cursor: pointer;
+}
+

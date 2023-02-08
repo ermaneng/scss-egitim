@@ -1,0 +1,26 @@
+$desktopSize: 900px;
+
+$mediaSizes: (
+  'mobile'    : "only screen and (max-width: 400px)",
+  'tablet'    : "only screen and (min-width: 768px) and (max-width: "+$desktopSize+")",
+  'desktop'   : "only screen and (min-width: ("+$desktopSize+"))",
+  'landscape' : "screen and (orientation:landscape) ",    
+  'portrait'  : "screen and (orientation:portrait) "
+);
+
+@mixin media($breakpoints) {
+  $sizes : ();
+  @each $breakpoint in $breakpoints {
+      // If the key exists in the map
+      $sizes: append(
+          $sizes,
+          #{inspect(map-get($mediaSizes, $breakpoint))},
+          comma
+      );
+  }
+ 
+  @media #{$sizes} {
+    @content;
+  }
+
+}

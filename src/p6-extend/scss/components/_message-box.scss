@@ -1,0 +1,49 @@
+$grey: #ccc;
+$red: red;
+$orange: orange;
+$green: green;
+
+.message-box-container{
+    font-family: $FONT_Arial;
+}
+
+
+%box{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+.message-box{
+    @extend %box; 
+    border-color:$grey;
+    background-color: lighten($grey, 10);
+}
+
+.message-box.alert{
+    @extend %box;
+    border-color: $red;
+    background-color: lighten($red, 30);
+}
+
+.message-box.warn{
+    @extend %box;
+    border-color: $orange;
+    background-color: lighten($orange, 30);
+}
+
+.message-box.success{
+    @extend %box;
+    border-color: $green;
+    background-color: lighten($green, 50);
+}
+
+.button{
+    @extend %box;
+    border:1px solid $grey;
+    background-color: white;
+    width: 50px;
+    cursor: pointer;
+}
+

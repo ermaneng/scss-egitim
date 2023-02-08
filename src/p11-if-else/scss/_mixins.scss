@@ -1,0 +1,18 @@
+@mixin experimental($property, $value) {
+    @each $member in webkit, khtml, moz, ms {
+      -#{$member}-#{$property}: $value;
+    }
+    #{$property}: $value;
+  }
+  
+
+@mixin avatar($size, $circle:false){
+    width:$size;
+    height:$size;
+
+    @if($circle){
+      border-radius: $size / 2;
+    }
+      
+    
+}

@@ -1,0 +1,50 @@
+.message-box-container {
+  font-family: Arial, Helvetica, sans-serif; }
+
+.message-box.default, .message-box.alert, .message-box.warn, .message-box.success, .button {
+  padding: 10px 20px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  border: 1px solid;
+  margin-bottom: 10px; }
+
+.message-box.default {
+  border-color: #ccc;
+  background-color: #e6e6e6; }
+
+.message-box.alert {
+  border-color: red;
+  background-color: #ff9999; }
+
+.message-box.warn {
+  border-color: orange;
+  background-color: #ffdb99; }
+
+.message-box.success {
+  border-color: green;
+  background-color: #80ff80; }
+
+.button {
+  border-color: #ccc;
+  background-color: white;
+  background-image: url("https://picsum.photos/200/300");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  cursor: pointer; }
+
+.longText {
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-text-overflow: ellipsis;
+  -khtml-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 200px;
+  max-width: 200px; }

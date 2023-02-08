@@ -1,0 +1,50 @@
+$grey: #ccc;
+$red: red;
+$orange: orange;
+$green: green;
+
+
+$boxTypes: 
+    default $grey 10,
+    alert $red 30,
+    warn $orange 30,
+    success $green 50;
+
+.message-box-container{
+    font-family: $FONT_Arial;
+}
+
+
+%box{
+    padding: 10px 20px;
+    @include experimental(border-radius, 6px);
+    @include opacity(0.8);
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+@mixin messageBox($borderColor, $lightenValue){
+    @extend %box; 
+    border-color:$borderColor;
+    background-color: lighten($borderColor, $lightenValue);
+}
+
+@each $selector, $color, $lighten in $boxTypes{
+    .message-box.#{$selector}{
+        @include messageBox($color, $lighten);
+    }
+}
+
+.button{
+    @include messageBox($grey, 50);
+    @include backgroundImage('https://picsum.photos/200/300');
+    width: 50px;
+    cursor: pointer;
+}
+
+
+.longText{
+    @include text-ellipsis(200px);
+}
+
+

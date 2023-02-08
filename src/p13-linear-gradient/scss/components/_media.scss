@@ -1,0 +1,37 @@
+.grid-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .item{
+        min-width: 100px;
+        height: 100px;
+        background: #f1f1f1;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include linear-gradient(((#1e5799,0%),(#2989d8,50%),(#207cca,51%),(#7db9e8,100%)),fromTopLeft,#207cca)
+    }
+
+    @include media(mobile){
+        .item{
+            min-width: 100%;
+        }
+    }
+    @include media(tablet){
+        .item{
+            min-width: 100px;
+        }
+
+    }
+    @include media(desktop){
+        .item{
+            min-width: 200px;
+        }
+    }
+
+
+
+}

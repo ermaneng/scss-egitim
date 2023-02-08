@@ -1,0 +1,20 @@
+@mixin experimental($property, $value) {
+    @each $member in webkit, khtml, moz, ms {
+      -#{$member}-#{$property}: $value;
+    }
+    #{$property}: $value;
+  }
+  
+
+  @mixin opacity($opacity)
+  {
+    @if $opacity == 1
+    {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(enabled=false)");
+    }
+    @else {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+    }
+    opacity: $opacity;
+  }
+

@@ -1,0 +1,48 @@
+/*.infobox{
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.infobox .title{
+    background: #ccc;
+    padding: 10px;
+}
+
+.infobox .content{
+    padding: 10px;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.infobox.new .title{
+    //background: #ccc;
+    background: yellow;
+}*/
+
+.infobox{
+    width: 300px;
+    margin-bottom: 10px;
+    .title{
+        background: #ccc;
+        padding: 10px;
+
+        @at-root {
+            .infobox {
+              &.new .title{
+                  background: yellow;
+              }
+            }
+        }
+    }
+    .content{
+        padding: 10px;
+        border:1px solid #ccc;
+        box-sizing: border-box;
+    }
+    // &.new{
+    //     .title{
+    //         background: yellow;
+    //     }
+
+    // }
+}

@@ -1,0 +1,33 @@
+$boxWidth: 300px;
+$newTitleBackground: yellow;
+
+
+.infobox{
+    font-family: $FONT_Arial;
+    width: $boxWidth;
+    margin-bottom: 10px;
+    .title{
+        background: #ccc;
+        padding: 10px;
+    }
+    .content{
+        padding: 10px;
+        border:1px solid #ccc;
+        box-sizing: border-box;
+    }
+    &.new{
+        .title{
+            background: $newTitleBackground;
+            &:hover{
+                background: darken($newTitleBackground, 10);
+            }
+        }
+
+    }
+
+    &.half{
+        width: $boxWidth - 100px;
+    }
+
+
+}

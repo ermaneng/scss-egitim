@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"scss/style.scss",
+		"scss/_globals.scss",
+		"scss/components/_components.scss",
+		"scss/components/_infobox.scss"
+	],
+	"names": [],
+	"mappings": "AGAA;;;;;;;;;;;;;;;;;;;GAmBG;AAEH,AAAA,QAAQ,CAAA;EACJ,KAAK,EAAE,KAAK;EACZ,aAAa,EAAE,IAAI;CAwBtB;;AA1BD,AAGI,QAHI,CAGJ,MAAM,CAAA;EACF,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;CAShB;;AANO,AACE,QADM,AACL,IAAI,CAAC,MAAM,CAAA;EACR,UAAU,EAAE,MAAM;CACrB;;AAXf,AAeI,QAfI,CAeJ,QAAQ,CAAA;EACJ,OAAO,EAAE,IAAI;EACb,MAAM,EAAC,cAAc;EACrB,UAAU,EAAE,UAAU;CACzB"
+}

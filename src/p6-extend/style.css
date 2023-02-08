@@ -1,0 +1,30 @@
+.message-box-container {
+  font-family: Arial, Helvetica, sans-serif; }
+
+.message-box, .message-box.alert, .message-box.warn, .message-box.success, .button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 10px; }
+
+.message-box {
+  border-color: #ccc;
+  background-color: #e6e6e6; }
+
+.message-box.alert {
+  border-color: red;
+  background-color: #ff9999; }
+
+.message-box.warn {
+  border-color: orange;
+  background-color: #ffdb99; }
+
+.message-box.success {
+  border-color: green;
+  background-color: #80ff80; }
+
+.button {
+  border: 1px solid #ccc;
+  background-color: white;
+  width: 50px;
+  cursor: pointer; }

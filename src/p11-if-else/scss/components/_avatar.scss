@@ -1,0 +1,18 @@
+
+$sizes: 80px, 100px, 200px;
+
+@each $size in $sizes{
+    .avatar-#{$size}{
+        @include avatar($size);
+    }
+
+    .avatar-circle-#{$size}{
+        @include avatar($size, true);
+    }
+}
+
+
+
+
+
+

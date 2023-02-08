@@ -1,0 +1,21 @@
+.grid-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; }
+  .grid-container .item {
+    min-width: 100px;
+    height: 100px;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  @media only screen and (max-width: 400px) {
+    .grid-container .item {
+      min-width: 100%; } }
+  @media only screen and (min-width: 768px) and (max-width: 900px) {
+    .grid-container .item {
+      min-width: 100px; } }
+  @media only screen and (min-width: 900px) {
+    .grid-container .item {
+      min-width: 200px; } }

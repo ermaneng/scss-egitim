@@ -1,0 +1,17 @@
+.infobox {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
+  margin-bottom: 10px; }
+  .infobox .title {
+    background: #ccc;
+    padding: 10px; }
+  .infobox .content {
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; }
+  .infobox.new .title {
+    background: yellow; }
+    .infobox.new .title:hover {
+      background: #cccc00; }
+  .infobox.half {
+    width: 200px; }
